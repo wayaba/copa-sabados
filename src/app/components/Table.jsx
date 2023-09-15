@@ -48,19 +48,19 @@ const Table = () => {
                 >
                   <th
                     scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+                    className="px-6 py-2 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
                   >
                     {item.player}
                   </th>
-                  <td className="px-6 py-4">{item.pts}</td>
-                  <td className="px-6 py-4">
+                  <td className="px-6 py-2">{item.pts}</td>
+                  <td className="px-6 py-2">
                     {item.gamesPlayed}
                   </td>
-                  <td className="px-6 py-4">{item.win}</td>
-                  <td className="px-6 py-4">
+                  <td className="px-6 py-2">{item.win}</td>
+                  <td className="px-6 py-2">
                     {item.tied}
                   </td>
-                  <td className="px-6 py-4">{item.lose}</td>
+                  <td className="px-6 py-2">{item.lose}</td>
                 </tr>
               )
             })}

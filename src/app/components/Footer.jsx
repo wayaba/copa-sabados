@@ -1,27 +1,32 @@
-const Footer = () => {
-  return (
-<footer className="px-5 md:px-3 bg-pallete-light dark:bg-dark-body py-8">
-          <ul className="hidden text-sm font-medium text-center text-gray-500 divide-x divide-gray-200 rounded-lg shadow sm:flex dark:divide-gray-700 dark:text-gray-400">
-            <li className="w-full">
-              <a
-                href="#"
-                className="inline-block w-full p-4 text-gray-900 bg-gray-100 rounded-l-lg focus:ring-4 focus:ring-blue-300 active focus:outline-none dark:bg-gray-700 dark:text-white"
-                aria-current="page"
-              >
-                Tabla
-              </a>
-            </li>
-            <li className="w-full">
-              <a
-                href="#"
-                className="inline-block w-full p-4 bg-white rounded-r-lg hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
-              >
-                Último Partido
-              </a>
-            </li>
-          </ul>
-        </footer>
-  )
-}
+'use client'
+import { Cafecito } from "./Cafecito";
 
-export default Footer
+const Footer = () => {
+    return ( 
+        <footer className="flex flex-col text-xs bottom-0 left-0 right-0 2xl:mt-10 2xl:pb-20 lg:mt-3  md:mt-3 md:pb-2 mt-10 pb-5 text-center opacity-60  text-white/80 justify-center">
+        <small>
+          {' '}
+          Desarrollado por{' '}
+          <a
+            className="text-white hover:underline"
+            target="_blank"
+            href={'mailto:pabloj.pedraza@gmail.com'}
+            rel="noreferrer"
+          >
+            Pablo Pedraza
+          </a>{' '}
+          &bull;{' '}
+          <a
+            className="text-white hover:underline"
+            target="_blank"
+            href={`https://github.com/wayaba`}
+            rel="noreferrer"
+          >
+            Github
+          </a>
+        </small>
+        <Cafecito />
+      </footer> );
+}
+ 
+export default Footer;
