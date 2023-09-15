@@ -1,7 +1,5 @@
 'use client'
 
-import { useSession } from 'next-auth/react'
-import { useState } from 'react'
 import Table from './components/Table'
 
 const HomePage = () => {
