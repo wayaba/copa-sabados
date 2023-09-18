@@ -1,21 +1,8 @@
-'use client'
+import HomeClient from './client'
+import TournamentService from './services/Tournament'
 
-import Table from './components/Table'
-
-const HomePage = () => {
-  return (
-    <div className="flex flex-col md:flex-row">
-      <section className="w-full">
-        <div className="flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
-          <div className="flex flex-wrap">
-            <div className="w-full p-6">
-              <Table></Table>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-  )
+export const dynamic = 'force-dynamic'
+export default async function Home() {
+  const positions = await TournamentService.positions()
+  return <HomeClient positions={positions} />
 }
-
-export default HomePage

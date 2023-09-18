@@ -1,18 +1,20 @@
-const lista = [
-  { player: 'Mauro', pts: 69, gamesPlayed: 25, win: 13, tied: 5, lose: 7 },
-  { player: 'Bilos', pts: 66, gamesPlayed: 24, win: 12, tied: 6, lose: 6 },
-  { player: 'Mariano', pts: 65, gamesPlayed: 26, win: 11, tied: 6, lose: 9 },
-  { player: 'Omar', pts: 65, gamesPlayed: 23, win: 13, tied: 3, lose: 6 },
-  { player: 'Ariel', pts: 65, gamesPlayed: 22, win: 13, tied: 4, lose: 5 },
-  { player: 'Nico', pts: 64, gamesPlayed: 27, win: 11, tied: 4, lose: 11 },
-  { player: 'Pity', pts: 63, gamesPlayed: 27, win: 10, tied: 6, lose: 10 },
-  { player: 'Mario', pts: 63, gamesPlayed: 23, win: 12, tied: 4, lose: 6 },
-  { player: 'Rocky', pts: 62, gamesPlayed: 30, win: 9, tied: 5, lose: 14 },
-  { player: 'Claudio', pts: 59, gamesPlayed: 28, win: 9, tied: 4, lose: 14 },
-  { player: 'Luis', pts: 57, gamesPlayed: 30, win: 7, tied: 6, lose: 16 },
-  { player: 'Ale G', pts: 53, gamesPlayed: 20, win: 9, tied: 6, lose: 4 }
+let lista = [
+  { playerName: 'Mauro', totalPoints: 69, played: 25, win: 13, draw: 5, lost: 7 },
+  { playerName: 'Bilos', totalPoints: 66, played: 24, win: 12, draw: 6, lost: 6 },
+  { playerName: 'Mariano', totalPoints: 65, played: 26, win: 11, draw: 6, lost: 9 },
+  { playerName: 'Omar', totalPoints: 65, played: 23, win: 13, draw: 3, lost: 6 },
+  { playerName: 'Ariel', totalPoints: 65, played: 22, win: 13, draw: 4, lost: 5 },
+  { playerName: 'Nico', totalPoints: 64, played: 27, win: 11, draw: 4, lost: 11 },
+  { playerName: 'Pity', totalPoints: 63, played: 27, win: 10, draw: 6, lost: 10 },
+  { playerName: 'Mario', totalPoints: 63, played: 23, win: 12, draw: 4, lost: 6 },
+  { playerName: 'Rocky', totalPoints: 62, played: 30, win: 9, draw: 5, lost: 14 },
+  { playerName: 'Claudio', totalPoints: 59, played: 28, win: 9, draw: 4, lost: 14 },
+  { playerName: 'Luis', totalPoints: 57, played: 30, win: 7, draw: 6, lost: 16 },
+  { playerName: 'Ale G', totalPoints: 53, played: 20, win: 9, draw: 6, lost: 4 }
 ]
-const Table = () => {
+const Table = ({positions}) => {
+  
+  if(positions.length > 0) lista = positions
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -43,24 +45,24 @@ const Table = () => {
             {lista.map((item) => {
               return (
                 <tr
-                  key={item.player}
+                  key={item.playerName}
                   className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
                 >
                   <th
                     scope="row"
                     className="px-6 py-2 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
                   >
-                    {item.player}
+                    {item.playerName}
                   </th>
-                  <td className="px-6 py-2">{item.pts}</td>
+                  <td className="px-6 py-2">{item.totalPoints}</td>
                   <td className="px-6 py-2">
-                    {item.gamesPlayed}
+                    {item.played}
                   </td>
                   <td className="px-6 py-2">{item.win}</td>
                   <td className="px-6 py-2">
-                    {item.tied}
+                    {item.draw}
                   </td>
-                  <td className="px-6 py-2">{item.lose}</td>
+                  <td className="px-6 py-2">{item.lost}</td>
                 </tr>
               )
             })}

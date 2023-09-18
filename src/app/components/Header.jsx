@@ -2,11 +2,11 @@
 
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useState } from 'react'
+import Link from 'next/link';
 
 const Header = () => {
   const [openDropdown, setOpenDropdown] = useState(false)
-  const { data: session } = useSession();
-  console.log({ session });
+  const { data: session, status } = useSession();
 
   const handleOpenDropdown = () => {
     setOpenDropdown(!openDropdown)
@@ -19,7 +19,7 @@ const Header = () => {
       >
         <div className="flex flex-wrap items-center">
           <div className="flex flex-shrink md:w-1/3 justify-center md:justify-start text-white">
-            <a href="#" aria-label="Home">
+            <a href="/" aria-label="Home">
               <span className="text-xl pl-2">
                 <i className="em em-grinning"></i>
               </span>
@@ -29,20 +29,20 @@ const Header = () => {
           <div className="flex w-full pt-2 content-center justify-between md:w-1/3 md:justify-end">
             <ul className="list-reset flex justify-between flex-1 md:flex-none items-center">
               <li className="flex-1 md:flex-none md:mr-3">
-                <a
+                <Link
                   className="inline-block py-2 px-4 text-white no-underline"
-                  href="#"
+                  href="/"
                 >
                   Tabla
-                </a>
+                </Link>
               </li>
               <li className="flex-1 md:flex-none md:mr-3">
-                <a
+                <Link
                   className="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
                   href="#"
                 >
                   Último partido
-                </a>
+                </Link>
               </li>
               <li className="flex-1 md:flex-none md:mr-3">
                 <div className="relative inline-block">
@@ -55,7 +55,7 @@ const Header = () => {
                     <span className="pr-2">
                       <i className="em em-robot_face"></i>
                     </span>{' '}
-                    Hi, {session?.user.username}{' '}
+                    Hola, {session?.user.username}{' '}
                     <svg
                       className="h-3 fill-current inline"
                       xmlns="http://www.w3.org/2000/svg"
@@ -65,13 +65,13 @@ const Header = () => {
                     </svg>
                   </button>
                 ) :  (
-                    <button
-                    onClick={() => signIn()}
+                    <Link
+                    href="/login"
                     className="drop-button text-white py-2 px-2"
                   >
                     {' '}
                     Login{' '}
-                  </button>
+                  </Link>
                 ) }
                   
                   <div
@@ -80,6 +80,12 @@ const Header = () => {
                       openDropdown ? '' : 'invisible'
                     }`}
                   >
+                    <Link
+                  className="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                  href="/player"
+                >
+                  Jugadores
+                </Link>
                     <div className="border border-gray-800"></div>
                     <button
                       onClick={() => signOut()}
