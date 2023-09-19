@@ -1,5 +1,5 @@
 import HomeClient from './client'
-import TournamentService from './services/Tournament'
+import TournamentService from './services/tournamentService'
 
 export const dynamic = 'force-dynamic'
 export default async function Home() {

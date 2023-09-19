@@ -1,13 +1,13 @@
-import { EnvironmentVars } from '../config/env'
-const SERVICE_PATH = EnvironmentVars.NEXT_PUBLIC_API_URL + '/tournaments'
+import { envVars } from '../config/env'
+import getAuthHeader from '../util/authHeader'
+
+const SERVICE_PATH = envVars.NEXT_PUBLIC_API_URL + '/tournaments'
 
 const positions = async (name) => {
   try {
     const res = await fetch(`${SERVICE_PATH}/positions`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: getAuthHeader(null),
       body: JSON.stringify({
         name: name
       })
