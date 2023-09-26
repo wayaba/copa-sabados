@@ -3,8 +3,8 @@ const CafecitoIcon = () => {
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="150"
-        height="35"
+        width="120"
+        height="30"
         viewBox="0 0 192 40"
         fill="none"
         className="m-auto"

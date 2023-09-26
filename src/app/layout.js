@@ -6,11 +6,13 @@ import SessionAuthProvider from './context/SessionAuthProvider'
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-gray-800 font-sans leading-normal tracking-normal mt-12">
+      <body className="bg-gray-100">
         <SessionAuthProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
+          <div className="max-w-3xl mx-auto p-4 ">
+            <Header />
+            <main className="mt-8">{children}</main>
+            <Footer />
+          </div>
         </SessionAuthProvider>
       </body>
     </html>

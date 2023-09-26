@@ -1,4 +1,5 @@
 const CustomTable = ({ items, headers }) => {
+  if(items.length === 0) return <></>
   return (
     <>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
