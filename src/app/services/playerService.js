@@ -7,8 +7,12 @@ const getAll = async (session) => {
   try {
     const res = await fetch(`${SERVICE_PATH}`, {
       method: 'GET',
+      cache: 'no-cache',
       headers: getAuthHeader(session)
     })
+    if (!res.ok) {
+      throw new Error('Failed to get all')
+    }
     return await res.json()
   } catch (e) {
     console.log('Error', e)
@@ -21,6 +25,9 @@ const getById = async (session, id) => {
       method: 'GET',
       headers: getAuthHeader(session)
     })
+    if (!res.ok) {
+      throw new Error('Failed to get by id')
+    }
     return await res.json()
   } catch (e) {
     console.log('Error', e)
@@ -34,6 +41,9 @@ const create = async (session, payload) => {
       headers: getAuthHeader(session),
       body: JSON.stringify(payload)
     })
+    if (!res.ok) {
+      throw new Error('Failed to create')
+    }
     return await res.json()
   } catch (e) {
     console.log('Error', e)
@@ -46,6 +56,9 @@ const remove = async (session, id) => {
       method: 'DELETE',
       headers: getAuthHeader(session)
     })
+    if (!res.ok) {
+      throw new Error('Failed to delete')
+    }
     return await res.json()
   } catch (e) {
     console.log('Error', e)

@@ -1,7 +1,7 @@
-import PlayersList from '../components/PlayersList'
+import PlayersList from '../components/player/PlayersList'
 import Link from 'next/link'
 
-export default function Player() {
+export default async function Player() {
   return (
     <section className="flex flex-col md:flex-row mt-12 md:mt-2 p-6">
       <div className="flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
